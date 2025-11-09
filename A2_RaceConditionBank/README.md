@@ -6,9 +6,4 @@ Aufgabe:
    - Starte 10 Threads, die jeweils 100 (EUR) einzahlen und 150 (EUR) abheben.
       - ACHTUNG: immer ein Sleep verwenden zwischen einzahlen und abheben.
    - Gib am Ende den Kontostand aus! 
-2. Ziel: Am Ende soll der Kontostand korrekt sein.
-   - Führe Synchronisation ein!
-
-Struktur:
-- Program.cs: Startpunkt, erstellt Threads.
-- BankAccount.cs: Klasse mit Methoden Deposit(int amount), Withdraw(int amount), GetBalance().
+2. ...

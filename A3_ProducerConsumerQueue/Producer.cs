@@ -7,15 +7,13 @@ namespace A3_ProducerConsumerQueue;
 
 public class Producer
 {
-    private readonly ConcurrentQueue<int> queue;
     private readonly int producerId;
     private readonly Random random;
-    private Thread? producerThread;
     private volatile bool shouldStop = false;
+    private Thread? producerThread;
 
-    public Producer(ConcurrentQueue<int> queue, int id)
+    public Producer( int id)
     {
-        this.queue = queue;
         this.producerId = id;
         this.random = new Random(id * 1000); // Verschiedene Seeds für verschiedene Producer
         
@@ -29,9 +27,7 @@ public class Producer
         while (!shouldStop)
         {
             int number = random.Next(1, 101); // Zufällige Zahl zwischen 1 und 100
-            queue.Enqueue(number);
-            Console.WriteLine($"[Producer {producerId}] Produziert: {number} | Queue-Größe: {queue.Count}");
-            
+           
             Thread.Sleep(1000); // 1 Sekunde Takt
         }
     }
@@ -39,6 +35,5 @@ public class Producer
     public void Stop()
     {
         shouldStop = true;
-        producerThread?.Join();
     }
 }
